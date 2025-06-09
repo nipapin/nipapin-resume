@@ -1,4 +1,4 @@
-import { Code, Info } from "@mui/icons-material";
+import { Code, Info, OpenInNew } from "@mui/icons-material";
 import {
 	Box,
 	Card,
@@ -30,7 +30,7 @@ const scripts = [
 const works = [
 	{
 		id: 1,
-		title: "Кушать подано",
+		title: "Кушать подано|2021-2022",
 		about: "эко-система для столовой",
 		description:
 			"Создание и ведение web-приложения «Кушать подано», полная автоматизация процессов, кассовое приложение для составления меню, панель администрирования для настройки и редактирования блюд, менеджмент кухни, уведомления о поступлении заказов, онлайн-меню, обновление в реальном времени.",
@@ -41,7 +41,7 @@ const works = [
 	},
 	{
 		id: 2,
-		title: "РБ Полюс",
+		title: "РБ Полюс|2022-2023",
 		about: "сервис для расчета стоимости рекламной кампании",
 		description:
 			"Web-приложение для рекламной компании «РБ Полюс», калькулятор для расчета стоимости рекламной кампании онлайн, моментальный расчет, более 150 параметров, охват более 10 регионов, 19 городов, клиентское приложение, панель администрирования, база входящих ответов, выгрузка расчета как в графическом варианте, так и в формате XLSX.Также создавал лендинг-страницы в Тильда. В период с апреля 2022 по сентябрь 2022, продажи в сегменте интернет-реклама выросли с 200 000 р в месяц до 1 000 000 рублей в месяц.",
@@ -52,14 +52,45 @@ const works = [
 	},
 	{
 		id: 3,
-		title: "Podshipnikoff",
+		title: "Podshipnikoff|2023-2024",
 		about: "сервис для продажи подшипников в России",
 		description:
 			"Интернет-магазин для продажи подшипников в России, созданный на Next.js. Также была реализована система отправки запросов на почту и собственная CRM-система для управления заказами и продукцией.",
 		link: null,
 		actionIcon: <Info />,
-		tech: "Next.js|Typescript|@mui/material|Postres|node|node-mailer|socket.io|Yandex Cloud|NGINX",
+		tech: "Next.js|Typescript|@mui/material|Postgres|node|node-mailer|socket.io|Yandex Cloud|NGINX",
 		anno: "На данный момент сервис не работает, так как компания отказалась от использования. Есть возможность показать при помощи github-репозитория"
+	},
+	{
+		id: 4,
+		title: "AtomX|2024-2025",
+		about: "пожжержка и создание расширений для Adobe",
+		description:
+			"Помогаю клиентам с техническим обеспечением расширений для Adobe, а также создаю собственные расширения для автоматизации проектов в After Effects и Premiere Pro",
+		link: "https://get-atomx.com",
+		actionIcon: <OpenInNew />,
+		tech: "HMTL|CSS|VanilaJS|Adobe Premiere Pro API|Adobe After Effects API|OSAScript|C++",
+		anno: null
+	},
+	{
+		id: 5,
+		title: "Odin Pro|2024-2025",
+		about: "коммерческий сайт для зарубежного блогера по продаже расширения для Premiere Pro",
+		description: "Создал сайт для зарубежного блогера Premiere Basics для продажи расширения с системой переходов для Premiere Pro",
+		link: "https://odin-pro.com",
+		actionIcon: <OpenInNew />,
+		tech: "Next.js|Typescript|@mui/material|Postgres|node|node-mailer|socket.io|Yandex Cloud|NGINX|PM2",
+		anno: null
+	},
+	{
+		id: 6,
+		title: "Ione|2024-2025",
+		about: "создание и поддержка сценариев для автоматизации процессов в After Effects",
+		description: "Создаю и поддерживаю сценарии для автоматизации процессов в After Effects по запросу дизайнеров и авторов",
+		link: null,
+		actionIcon: <Info />,
+		tech: "Bolt-CEP|Adobe After Effects API|ReactJS|Typescript|@mui/material",
+		anno: "Все они есть на github, но в основном они не доступны для показа только по запросу"
 	}
 ];
 
@@ -86,21 +117,6 @@ const timeline_001 = (
 				);
 			})}
 		</List>
-		<Typography>
-			На данный момент я занимаюсь техническим обеспечением расширений для <Link href={"https://get-atomx.com/"}>AtomX</Link>
-		</Typography>
-		<Divider sx={{ m: "8px 0" }} />
-		<Typography>
-			Создал <Link href={"https://odin-pro.com/"}>сайт</Link> для зарубежного блогера Premiere Basics для продажи расширения с системой переходов для
-			Premiere Pro
-		</Typography>
-		<Divider sx={{ m: "8px 0" }} />
-		<Typography>
-			Также веду разработку расширений для автоматизации проектов в After Effects, все они есть на github, но в основном они не доступны для показа
-			(по запросу).
-		</Typography>
-		<Divider sx={{ m: "8px 0" }} />
-		<Typography>В последнее время активно изучаю нейронные сети и их применение в веб-разработке, а также в автоматизации продуктов Adobe</Typography>
 	</Box>
 );
 
@@ -131,9 +147,20 @@ function Template() {
 						link ? window.open(link, "_blank") : setAnchorEl(e.target);
 					};
 
+					const [titleText, titleYear] = title.split("|");
+
 					return (
 						<Card sx={{ m: "4px 0" }} key={id}>
-							<CardHeader title={title} subheader={about} action={<IconButton onClick={clickHandle}>{actionIcon}</IconButton>} />
+							<CardHeader
+								title={
+									<Box sx={{ display: "flex", alignItems: "center", gap: "8px", pb: "8px" }}>
+										<Typography fontWeight='bolder'>{titleText}</Typography>
+										<Chip label={titleYear} size='small' color='primary' />
+									</Box>
+								}
+								subheader={about}
+								action={<IconButton onClick={clickHandle}>{actionIcon}</IconButton>}
+							/>
 							<Divider />
 							<CardContent>
 								<Typography>{description}</Typography>
@@ -172,6 +199,11 @@ function Template() {
 					);
 				})}
 			</List>
+			<Divider sx={{ m: "8px 0" }} />
+			<Typography>
+				В последнее время активно изучаю нейронные сети <strong>(Whisper, Elevenlabs, Deepseek)</strong> и их применение в веб-разработке, а также в
+				автоматизации продуктов Adobe
+			</Typography>
 		</Box>
 	);
 }
