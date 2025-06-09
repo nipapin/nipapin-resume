@@ -1,4 +1,4 @@
-import { Code, Info, OpenInNew } from "@mui/icons-material";
+import { Code, Info } from "@mui/icons-material";
 import {
 	Box,
 	Card,
@@ -37,7 +37,7 @@ const works = [
 		link: null,
 		actionIcon: <Info />,
 		tech: "ReactJS|Functional Components|css|js|html|MaterialUI|Firebase (Firestore, Auth, Storage)",
-		anno: "Так как сервис не имеет клиентской части, могу показать при помощи трансляции экрана"
+		anno: "Так как сервис не имеет клиентской части, могу показать при помощи github-репозитория"
 	},
 	{
 		id: 2,
@@ -45,9 +45,21 @@ const works = [
 		about: "сервис для расчета стоимости рекламной кампании",
 		description:
 			"Web-приложение для рекламной компании «РБ Полюс», калькулятор для расчета стоимости рекламной кампании онлайн, моментальный расчет, более 150 параметров, охват более 10 регионов, 19 городов, клиентское приложение, панель администрирования, база входящих ответов, выгрузка расчета как в графическом варианте, так и в формате XLSX.Также создавал лендинг-страницы в Тильда. В период с апреля 2022 по сентябрь 2022, продажи в сегменте интернет-реклама выросли с 200 000 р в месяц до 1 000 000 рублей в месяц.",
-		link: "https://www.rb-polus.ru/algorithm",
-		actionIcon: <OpenInNew />,
-		tech: "vite|ReactJS|Functional Components|css|js|html|MaterialUI|Firebase (Firestore, Auth, Storage)|XLSX.js|Konva.js|Yandex Cloud"
+		link: null,
+		actionIcon: <Info />,
+		tech: "vite|ReactJS|Functional Components|css|js|html|MaterialUI|Firebase (Firestore, Auth, Storage)|XLSX.js|Konva.js|Yandex Cloud",
+		anno: "На данный момент сервис не работает, так как компания отказалась от использования. Есть возможность показать при помощи github-репозитория"
+	},
+	{
+		id: 3,
+		title: "Podshipnikoff",
+		about: "сервис для продажи подшипников в России",
+		description:
+			"Интернет-магазин для продажи подшипников в России, созданный на Next.js. Также была реализована система отправки запросов на почту и собственная CRM-система для управления заказами и продукцией.",
+		link: null,
+		actionIcon: <Info />,
+		tech: "Next.js|Typescript|@mui/material|Postres|node|node-mailer|socket.io|Yandex Cloud|NGINX",
+		anno: "На данный момент сервис не работает, так как компания отказалась от использования. Есть возможность показать при помощи github-репозитория"
 	}
 ];
 
@@ -74,6 +86,21 @@ const timeline_001 = (
 				);
 			})}
 		</List>
+		<Typography>
+			На данный момент я занимаюсь техническим обеспечением расширений для <Link href={"https://get-atomx.com/"}>AtomX</Link>
+		</Typography>
+		<Divider sx={{ m: "8px 0" }} />
+		<Typography>
+			Создал <Link href={"https://odin-pro.com/"}>сайт</Link> для зарубежного блогера Premiere Basics для продажи расширения с системой переходов для
+			Premiere Pro
+		</Typography>
+		<Divider sx={{ m: "8px 0" }} />
+		<Typography>
+			Также веду разработку расширений для автоматизации проектов в After Effects, все они есть на github, но в основном они не доступны для показа
+			(по запросу).
+		</Typography>
+		<Divider sx={{ m: "8px 0" }} />
+		<Typography>В последнее время активно изучаю нейронные сети и их применение в веб-разработке, а также в автоматизации продуктов Adobe</Typography>
 	</Box>
 );
 
@@ -95,7 +122,7 @@ function Template() {
 	const open = Boolean(anchorEl);
 	return (
 		<Box>
-			<Typography sx={{ fontSize: "1.5em", m: "8px 0", fontWeight: "bolder" }}>2021-2023</Typography>
+			<Typography sx={{ fontSize: "1.5em", m: "8px 0", fontWeight: "bolder" }}>2021-{new Date().getFullYear()}</Typography>
 			<Typography>В 2019 году я оформил самозанятость, после ухода с телевидения работал в сфере дизайна и web-программирования.</Typography>
 			<Typography color='primary'>Примеры работ:</Typography>
 			<List>
